@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Importing cleaned data
-CleanedData = pd.read_csv('/Users/sambolton/Desktop/Cummins Lab/LXRa vs LXRb Data/CDD CSV Export - CleanedData.csv')
+CleanedData = pd.read_csv('/Users/sambolton/Desktop/Cummins_Lab/LXRa vs LXRb Data/CDD CSV Export - CleanedData.csv')
 
 # Separate features (X) and targets (y)
 X = CleanedData.drop(columns=['LXRa', 'LXRb'])
