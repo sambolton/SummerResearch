@@ -107,8 +107,8 @@ pc1_values = X_reduced[:, 0]  # First column of X_reduced is PC1
 pc2_values = X_reduced[:, 1]  # Second column of X_reduced is PC2 (for PC1 and PC2 vs Delta LXR plot)
 
 # Get LXRa and LXRb values (for PC1 vs LXRa and LXRb plot)
-# lxra_values = y['LXRa'].values
-# lxrb_values = y['LXRb'].values
+lxra_values = y['LXRa'].values
+lxrb_values = y['LXRb'].values
 
 # Get LXRa - LXRb values (for PC1 and PC2 vs Delta LXR plot)
 lxr_values = y['LXRa'].values - y['LXRb'].values
@@ -134,7 +134,7 @@ cbar.ax.tick_params(labelsize=12)
 # Set labels for the axes with Seaborn styling
 ax.set_xlabel('Principal Component 1', fontsize=14, labelpad=10)
 ax.set_ylabel('Principal Component 2', fontsize=14, labelpad=10)
-ax.set_zlabel('\Delta LXR', fontsize=14, labelpad=10)
+ax.set_zlabel('LXRa - LXRb', fontsize=14, labelpad=10)
 ax.tick_params(axis='both', which='major', labelsize=12)
 
 # Add a title with Seaborn styling
@@ -148,5 +148,67 @@ ax.view_init(elev=25, azim=35)
 
 
 # Show the plot
+plt.tight_layout()
+plt.show()
+
+
+# Creating figure for PC1 vs LXRa and LXRb
+fig = plt.figure(figsize=(12, 10))
+ax = fig.add_subplot(111, projection='3d')
+
+palette = sns.color_palette("viridis", as_cmap=True)
+
+scatter = ax.scatter(pc1_values, lxra_values, lxrb_values, 
+                    c=pc1_values,  # Color points by PC1 value
+                    cmap=palette, 
+                    s=80,  # Point size
+                    alpha=0.8,  # Transparency
+                    edgecolor='w',  # White edge around points
+                    linewidth=0.5)  # Edge thickness
+
+cbar = plt.colorbar(scatter)
+cbar.set_label('PC1 Value', fontsize=14)
+cbar.ax.tick_params(labelsize=12)
+
+ax.set_xlabel('Principal Component 1', fontsize=14, labelpad=10)
+ax.set_ylabel('LXRa', fontsize=14, labelpad=10)
+ax.set_zlabel('LXRb', fontsize=14, labelpad=10)
+ax.tick_params(axis='both', which='major', labelsize=12)
+
+plt.title('3D Visualization of PC1 vs LXRa and LXRb Values', fontsize=16, pad=20)
+
+ax.grid(True, alpha=0.3)
+
+ax.view_init(elev=25, azim=35)
+
+plt.tight_layout()
+plt.show()
+
+
+# Creating 2D scatter plots for PC1 vs LXRa, LXRb, and (LXRa - LXRb) for better visualization
+plt.scatter(pc1_values, lxr_values, c=pc1_values, cmap='viridis', s=80, alpha=0.8, edgecolor='w', linewidth=0.5)
+plt.colorbar(label='PC1 Value')
+plt.xlabel('Principal Component 1')
+plt.ylabel('LXRa - LXRb')
+plt.title('PC1 vs (LXRa - LXRb)')
+plt.grid(True, alpha=0.3)
+plt.tight_layout()
+plt.show()
+
+plt.scatter(pc1_values, lxra_values, c=pc1_values, cmap='viridis', s=80, alpha=0.8, edgecolor='w', linewidth=0.5)
+plt.colorbar(label='PC1 Value')
+plt.xlabel('Principal Component 1')
+plt.ylabel('LXRa')
+plt.title('PC1 vs LXRa')
+plt.grid(True, alpha=0.3)
+plt.tight_layout()
+plt.show()
+
+plt.scatter(pc1_values, lxrb_values, c=pc1_values, cmap='viridis', s=80, alpha=0.8, edgecolor='w', linewidth=0.5)
+plt.colorbar(label='PC1 Value')
+plt.xlabel('Principal Component 1')
+plt.ylabel('LXRb')
+plt.title('PC1 vs LXRb')
+plt.grid(True, alpha=0.3)
 plt.tight_layout()
 plt.show()

@@ -1,0 +1,23 @@
+CLUSTAL O(1.2.4) multiple sequence alignment
+
+
+5AVL_1|Chain       MKHQHQHQHQHQHQQPLQEEEQAHATSLPPRASSPPQILPQLSPEQLGMIEKLVAAQQQC	60
+1PQ6_1|Chains      ------------------------------GSHMGEGEGVQLTAAQELMIQQLVAAQLQC	30
+                                                  :        **:  *  **::***** **
+
+5AVL_1|Chain       NRRSFSDRLRVTPWPMAPDPHSREARQQRFAHFTELAIVSVQEIVDFAKQLPGFLQLSRE	120
+1PQ6_1|Chains      NKRSFSDQPKVTPWPLGADPQSRDARQQRFAHFTELAIISVQEIVDFAKQVPGFLQLGRE	90
+                   *:*****: :*****:. **:**:**************:***********:******.**
+
+5AVL_1|Chain       DQIALLKTSAIEVMLLETSRRYNPGSESITFLKDFSYNREDFAKAGLQVEFINPIFEFSR	180
+1PQ6_1|Chains      DQIALLKASTIEIMLLETARRYNHETECITFLKDFTYSKDDFHRAGLQVEFINPIFEFSR	150
+                   *******:*:**:*****:****  :*.*******:*.::** :****************
+
+5AVL_1|Chain       AMNELQLNDAEFALLIAISIFSADRPNVQDQLQVERLQHTYVEALHAYVSIHHPHDRLMF	240
+1PQ6_1|Chains      AMRRLGLDDAEYALLIAINIFSADRPNVQEPGRVEALQQPYVEALLSYTRIKRPQDQLRF	210
+                   **..* *:***:******.**********:  :** **: ***** :*. *::*:*:* *
+
+5AVL_1|Chain       PRMLMKLVSLRTLSSVHSEQVFALRLQDKKLPPLLSEIWDVHE	283
+1PQ6_1|Chains      PRMLMKLVSLRTLSSVHSEQVFALRLQDKKLPPLLSEIWDVHE	253
+                   *******************************************
+

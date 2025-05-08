@@ -4,7 +4,7 @@ from sklearn import neighbors
 from sklearn import model_selection
 from sklearn.metrics import mean_absolute_error, r2_score
 
-CleanedData = pd.read_csv("/Users/sambolton/Desktop/Cummins Lab/LXRa vs LXRb Data/CDD CSV Export - CleanedData.csv")
+CleanedData = pd.read_csv("/Users/sambolton/Desktop/Cummins_Lab/LXRa vs LXRb Data/CDD CSV Export - CleanedData.csv")
 
 
 # # Split the data into training and testing sets
@@ -17,11 +17,12 @@ CleanedData = pd.read_csv("/Users/sambolton/Desktop/Cummins Lab/LXRa vs LXRb Dat
 accuracy_list = []
 for i in range(25):
     forbidden = ['LXRa', 'LXRb', 'Molecule Name']
-    X = CleanedData.drop(columns=['LXRb', 'LXRa', 'Molecule Name', 'Heavy atom count', 'Topological polar surface area (Å²)', 'Rotatable bonds', 'Lipinski violations', 'H-bond acceptors'])
+    X = CleanedData.drop(columns=['LXRb', 'LXRa', 'Molecule Name', 'log S'])
     y = CleanedData['LXRb'] - CleanedData['LXRa']
-
+# Split the data into training and testing sets
     x_train, x_test, y_train, y_test = model_selection.train_test_split(X,y, test_size=0.2)
 
+# Create and train a KNN Regressor model
     clf = neighbors.KNeighborsRegressor(weights='distance', n_jobs=-1)
     clf.fit(x_train, y_train) # fitting (training)
 
