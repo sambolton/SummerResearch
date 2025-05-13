@@ -7,16 +7,16 @@ from sklearn.metrics import mean_absolute_error, r2_score
 CleanedData = pd.read_csv("/Users/sambolton/Desktop/Cummins_Lab/LXRa vs LXRb Data/CDD CSV Export - CleanedData.csv")
 
 # Binary Classification Threshold
-lxra_threshold = CleanedData['LXRa'].mean() + 0.5 * CleanedData['LXRa'].std()
-lxrb_threshold = CleanedData['LXRb'].mean() + 0.5 * CleanedData['LXRb'].std()
+lxra_threshold = 75
+lxrb_threshold = 50
 CleanedData['LXRa'] = np.where(CleanedData['LXRa'] > lxra_threshold, 1, 0)
-CleanedData['LXRb'] = np.where(CleanedData['LXRb'] > lxrb_threshold, 1, 0)
+CleanedData['LXRb'] = np.where(CleanedData['LXRb'] < lxrb_threshold, 1, 0)
 
 accuracy_list = []
 for i in range(25):
     forbidden = ['LXRa', 'LXRb', 'Molecule Name']
     X = CleanedData.drop(columns=['LXRb', 'LXRa', 'Molecule Name'])
-    y = CleanedData.apply(lambda row: 1 if (row['LXRa'] == 0 and row['LXRb'] == 1) else 0, axis=1)
+    y = CleanedData.apply(lambda row: 1 if (row['LXRa'] == 1 and row['LXRb'] == 1) else 0, axis=1)
     
 # Split the data into training and testing sets
     x_train, x_test, y_train, y_test = model_selection.train_test_split(X,y, test_size=0.2)
