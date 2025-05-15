@@ -34,7 +34,7 @@ predictionsa = clfa.predict(Xa_test)
 predictionsb = clfb.predict(Xb_test)
 
 cma = confusion_matrix(ya_test, predictionsa)
-cmb = confusion_matrix(ya_test, predictionsb)
+cmb = confusion_matrix(yb_test, predictionsb)
 print("Confusion Matricies:")
 
 tn, fp, fn, tp = cma.ravel()
